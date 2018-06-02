@@ -59,7 +59,7 @@ shadowJar {
     mergeServiceFiles()
 }
 
-mainClassName = "hello.micronaut.Application"
+mainClassName = "com.alimmit.hello.Application"
 
 test {
     useJUnitPlatform()
@@ -71,8 +71,4 @@ compileKotlin {
 
 compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
-}
-
-test {
-    useJUnitPlatform()
 }
