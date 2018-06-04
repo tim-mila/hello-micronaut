@@ -7,14 +7,14 @@ import org.jetbrains.spek.api.Spek
 import org.jetbrains.spek.api.dsl.describe
 import org.jetbrains.spek.api.dsl.on
 
-class EchoControllerSpec: Spek ({
+class HelloControllerSpec: Spek ({
 
-    describe("EchoController") {
+    describe("HelloController") {
         val embeddedServer : EmbeddedServer = ApplicationContext.run(EmbeddedServer::class.java)
         val client: HttpClient = HttpClient.create(embeddedServer.url)
-        on("test /echo?input=Foo responds \"Echo: Foo\"") {
-            val r : String = client.toBlocking().retrieve("/echo?input=Foo")
-            assert("Echo: Foo" == r)
+        on("test /hello responds \"Hello\"") {
+            val r : String = client.toBlocking().retrieve("/hello")
+            assert("Hello" == r)
         }
         afterGroup {
             client.close()
